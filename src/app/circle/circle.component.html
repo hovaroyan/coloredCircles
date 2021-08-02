@@ -1,9 +1,20 @@
 <div class="container">
+    <div class="center" *ngIf="colorToggle">
+        <span [style.background]="arrayColors[selectedColor]"
+            [cpToggle]="true"
+            [cpDialogDisplay]="'inline'"
+            [cpCancelButton]="true"
+            [cpCancelButtonText]="'Reset'"
+            [(colorPicker)]="arrayColors[selectedColor]">
+        </span>
+      </div>
     <div class="circle-container">
         <div 
         class="circle"
         [style.width.px]="circleDiameter" 
         [style.height.px]="circleDiameter"
+        [style.background-color]="arrayColors['color' + i]"
+        (click)="selectedColor='color' + i"
         *ngFor="let item of items; let i = index ">
         </div>
     </div>
@@ -11,6 +22,6 @@
       <button class="button" (click)="handleAdd(100)">Add 100</button>
       <button class="button" (click)="handleAdd(225)">Add 225</button>
       <button class="button" (click)="handleAdd(400)">Add 400</button>
-      <button class="button" [disabled]='!select' [style.background-color]="'#0D85E4'" (click)="handleReset()">Reset</button>
+      <button class="button" [disabled]='!colorToggle' [style.background-color]="'#0D85E4'" (click)="handleReset()">Reset</button>
     </div>
   </div>

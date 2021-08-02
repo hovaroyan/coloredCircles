@@ -13,14 +13,15 @@ export class CircleComponent implements OnInit {
   }
 
   items: Array<string> =[];
+  arrayColors: any = {};
   circleDiameter!: number;
-  select: boolean =false;
-  selectcolor: string='color';
+  selectedColor: string='color';
+  colorToggle: boolean = false;
 
 
   handleAdd(count:number) {
     this.items.length = count;
-    this.select = true;
+    this.colorToggle = true;
 
     if(count === 100){
       this.circleDiameter = 50;
@@ -33,7 +34,7 @@ export class CircleComponent implements OnInit {
   
   handleReset() {
     this.items.length = 0;
-    this.select = !this.select;
+    this.colorToggle = !this.colorToggle;
   }
 
 }
