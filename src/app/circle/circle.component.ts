@@ -25,11 +25,16 @@ export class CircleComponent implements OnInit {
 
     if(count === 100){
       this.circleDiameter = 50;
+      this.arrayColors ={}
     } else if(count === 225){
       this.circleDiameter = 32;
+      this.arrayColors ={}
     } else {
       this.circleDiameter = 23;
+      this.arrayColors ={}
     }
+    console.log(this.selectedColor);
+    
   }
   
   handleReset() {
